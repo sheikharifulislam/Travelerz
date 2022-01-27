@@ -1,22 +1,22 @@
 [
     {
         "id": "1",
-        "videoLink": "./images/vid-1.mp4"
+        "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS070mBx4iecYPOdFq05Hi-0vyS4ODxrMhXZw&usqp=CAU"
     },
     {
         "id": "2",
-        "videoLink": "./images/vid-2.mp4"
+        "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbdu_DK3_jsIetzO30PGOhfXTTh7LvfKLnMA&usqp=CAU"
     },
     {
         "id": "3",
-        "videoLink": "./images/vid-3.mp4"
+        "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnoLgGkAU6pYtcEVcQWtqvlA5ALLK7VaHS-g&usqp=CAU"
     },
     {
         "id": "4",
-        "videoLink": "./images/vid-4.mp4"
+        "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsHNXeGfoCwxOACrCMN42rF0GVgmodBiNu4Q&usqp=CAU"
     },
     {
         "id": "5",
-        "videoLink": "./images/vid-5.mp4"
+        "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEuBSnkwt6nafQ7iKGhhPkb4Gi7Yvnx4OcHQ&usqp=CAU"
     }
 ]

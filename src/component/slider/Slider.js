@@ -38,8 +38,8 @@ const Slider = () => {
     }, [count])
 
     return (
-        <section id="slider-section">
-            <div className="slider-container">                
+        <section id="image-section">
+            <div className="image-container">                
                 <div className="video-container" style={{
                     position: 'relative',
                     top: '0',
@@ -47,8 +47,8 @@ const Slider = () => {
                 }}>
                     {
                         sliderData.map((data) => (
-                            <div className="single-video" key={data.id} >
-                                <video src={data?.videoLink} id="video-slider" loop autoPlay muted></video>
+                            <div className="single-image" key={data.id} >
+                                <image src={data?.imageLink} id="image-slider" />
                             </div>
                         ))
                     }
