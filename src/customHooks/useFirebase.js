@@ -8,9 +8,10 @@ firebaseInitialize();
 
 const useFirebase = () => {
 
-    const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(false);
-    const [admin, setAdmin] = useState({});    
+    const [user, setUser] = useState({});    
+    const [admin, setAdmin] = useState({});
+    const [userisLoading, setUserIsLoading] = useState(true);
+    const [adminIsLoading, setAdminIsLoading] = useState(true);    
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -23,7 +24,7 @@ const useFirebase = () => {
     }
 
     const registration = (registrationData,navigate,location) => {
-        setIsLoading(true);
+        setUserIsLoading(true);
         const {name,email,password} = registrationData;
 
         createUserWithEmailAndPassword(auth,email,password)
@@ -34,7 +35,8 @@ const useFirebase = () => {
                     displayName: name,
                 });
                 setUser(result.user);
-                saveUserData(name,email);                
+                saveUserData(name,email);
+                setUserIsLoading(false)                
             })                       
             swal({
                 icon: "success",
@@ -53,17 +55,17 @@ const useFirebase = () => {
             }
         })
         .finally(() => {
-            setIsLoading(false);
+            setUserIsLoading(false);
         })
     }
 
     const login = (loginData, navigate,location) => {
-        setIsLoading(true);
+        setUserIsLoading(true);
         const {email,password} = loginData;
         signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
             setUser(result.user);
-            setIsLoading(false);
+            setUserIsLoading(false);
             swal({                    
                 title: `Wellcome Back ${result.user.displayName}`,
                 text: "Thank you For Login Please Wait For Redirect",
@@ -85,16 +87,16 @@ const useFirebase = () => {
             }
         })
         .finally(() => {
-            setIsLoading(false);
+            setUserIsLoading(false);
         })
     }
 
     const googleSignIn = (navigate,location) => {
-        setIsLoading(true);
+        setUserIsLoading(true);
         signInWithPopup(auth, googleProvider)
         .then((result) => {
             setUser(result.user);
-            setIsLoading(false);
+            setUserIsLoading(false);
             swal({                    
                 title: `Well Come ${result.user.displayName}`,
                 text: "Thank you For Login Please Wait For Redirect",
@@ -116,7 +118,7 @@ const useFirebase = () => {
             }
         })
         .finally(() => {
-            setIsLoading(false);
+            setUserIsLoading(false);
         })
     }
 
@@ -149,7 +151,7 @@ const useFirebase = () => {
     
     
     useEffect(() => {
-        setIsLoading(true);
+        setUserIsLoading(true);
         const unsubscribe = onAuthStateChanged(auth,(user) => {
             if(user) {
                 setUser(user);
@@ -157,24 +159,24 @@ const useFirebase = () => {
             else {
                 setUser({});
             }
-            setIsLoading(false);
+            setUserIsLoading(false);
 
             return unsubscribe;
         })
     },[auth]);
 
     useEffect(() => {
-        setIsLoading(true);
+        setAdminIsLoading(true);
         axios.get(`https://evening-crag-06086.herokuapp.com/check-admin?userEmail=${user?.email}`)
         .then((response) => {
             setAdmin(response.data);
-            setIsLoading(false);
+            setAdminIsLoading(false);
         })
         .catch((error) => {
             console.log(error.message);
         })
         .finally(() => {
-            setIsLoading(false);
+            setAdminIsLoading(false);
         })
     }, [user.email])
 
@@ -183,9 +185,10 @@ const useFirebase = () => {
         login,
         googleSignIn,
         logOut,
-        user,
-        isLoading,
-        admin,       
+        user,        
+        admin,
+        userisLoading,
+        adminIsLoading,       
     }
 }
 

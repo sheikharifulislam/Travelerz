@@ -5,10 +5,10 @@ import { FirebaseContext } from '../context/FirebaseProvider';
 
 const UserPrivateRoute = ({children}) => {
 
-    const {user, isLoading} = useContext(FirebaseContext);   
+    const {user, userisLoading} = useContext(FirebaseContext);    
     const location = useLocation();
 
-    if(isLoading) {
+    if(userisLoading) {
         return <CircularLoader/>
     }
 

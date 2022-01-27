@@ -15,6 +15,7 @@ import PendingAllBlog from "./component/dashboard/pendingAllBlog/PendingAllBlog"
 import MakeAdmin from "./component/dashboard/makeAdmin/MakeAdmin";
 import UserPrivateRoute from './privateRoute/UserPrivateRoute';
 import AdminPrivateRoute from './privateRoute/AdminPrivateRoute';
+import BlogDetails from "./component/blogDetails/BlogDetails";
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
             <Route path="/home" element={<Home/>} />
             <Route path="/registration" element={<Registration/>} />
             <Route path="/login" element={<LoginForm/>} />
+            <Route path="/blog-details/:blogId" element={
+              <UserPrivateRoute>
+                  <BlogDetails/>
+              </UserPrivateRoute>
+            } />
             <Route path="/dashboard/*" element={
               <UserPrivateRoute>
                   <Dashboard/>

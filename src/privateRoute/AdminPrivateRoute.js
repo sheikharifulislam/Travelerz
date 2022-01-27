@@ -4,11 +4,11 @@ import CircularLoader from '../customComponent/circularLoader/CircularLoader';
 import { FirebaseContext } from '../context/FirebaseProvider';
 
 const AdminPrivateRoute = ({children}) => {
-    const {admin, isLoading} = useContext(FirebaseContext);
+    const {admin, adminIsLoading} = useContext(FirebaseContext);
     const location = useLocation();
     console.log(admin);
 
-    if(isLoading) {
+    if(adminIsLoading) {
         return <CircularLoader/>
     }
 

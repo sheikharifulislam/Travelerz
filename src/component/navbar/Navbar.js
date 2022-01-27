@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import {FirebaseContext} from '../../context/FirebaseProvider';
@@ -6,7 +6,7 @@ import {FirebaseContext} from '../../context/FirebaseProvider';
 const Navbar = () => {  
 
     const {user} = useContext(FirebaseContext);
-
+   
     return (
         <header className="header">
             <div className="header-container">
