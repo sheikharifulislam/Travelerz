@@ -1,0 +1,76 @@
+/**********************
+***import google font**
+***********************/
+@import url("https://fonts.googleapis.com/css2?family=Bitter&family=Open+Sans&family=Poppins:wght@100;300;400;500&family=Roboto+Condensed&display=swap");
+
+/**********************
+***start main stytle***
+***********************/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #333;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border: 1px solid blue;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 9%;
+}
+
+.header-container .logo {
+  display: inline-block;
+  font-size: 25px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu ul li a {
+  display: block;
+  color: #666;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.menu ul li a:hover {
+  color: #bac34e;
+}
+
+#dashboard {
+  background-color: pink;
+  color: #333;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.icons {
+  display: none;
+}
+
+.header .icons div {
+  font-size: 25px;
+  cursor: pointer;
+  margin-left: 15px;
+  color: #666;
+}
+
+.header .icons div:hover {
+  color: #bac34e;
+}

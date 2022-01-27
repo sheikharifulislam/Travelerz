@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "videoLink": "./images/vid-1.mp4"
+    },
+    {
+        "id": "2",
+        "videoLink": "./images/vid-2.mp4"
+    },
+    {
+        "id": "3",
+        "videoLink": "./images/vid-3.mp4"
+    },
+    {
+        "id": "4",
+        "videoLink": "./images/vid-4.mp4"
+    },
+    {
+        "id": "5",
+        "videoLink": "./images/vid-5.mp4"
+    }
+]
