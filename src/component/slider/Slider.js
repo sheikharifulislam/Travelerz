@@ -38,9 +38,9 @@ const Slider = () => {
     }, [count])
 
     return (
-        <section id="image-section">
-            <div className="image-container">                
-                <div className="video-container" style={{
+        <section id="slider-section">
+            <div className="slider-container">                
+                <div className="image-container" style={{
                     position: 'relative',
                     top: '0',
                     right: count * 100 + '%',
@@ -48,7 +48,7 @@ const Slider = () => {
                     {
                         sliderData.map((data) => (
                             <div className="single-image" key={data.id} >
-                                <image src={data?.imageLink} id="image-slider" />
+                                <img src={data?.imageLink} id="image-slider" /> 
                             </div>
                         ))
                     }
