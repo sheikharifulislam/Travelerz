@@ -60,6 +60,9 @@ const Dashboard = (props) => {
                         <li>
                               <NavLink to="all-blog">All Blog</NavLink>
                         </li> 
+                        <li>
+                              <NavLink to="add-new-admin">Add Admin</NavLink>
+                        </li> 
                      </>
                   }
                   <li onClick={handleLogout}>Log Out</li>                 

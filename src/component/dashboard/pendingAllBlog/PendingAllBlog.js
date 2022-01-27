@@ -14,10 +14,9 @@ import swal from 'sweetalert';
 
 const PendingAllBlog = () => {
     
-    const [allBlog, setAllBlog] = useState([]);
-    const [status, setStatus] = useState('pending');
+    const [allBlog, setAllBlog] = useState([]);    
     const deteleRef = useRef(null);
-    const ApproveRef = useRef(null);
+    const approveRef = useRef(null);
 
     useEffect(() => {
         axios.get(`https://evening-crag-06086.herokuapp.com/all-blog?status=pending`)
@@ -35,7 +34,7 @@ const PendingAllBlog = () => {
                    text: 'Succefully Blog Status Changed',
                    button: 'ok',
                })
-               ApproveRef.current.parentElement.parentElement.remove();             
+               approveRef.current.parentElement.parentElement.remove();             
             }
         })
         .catch((error) => {
@@ -48,6 +47,29 @@ const PendingAllBlog = () => {
             }
         })
     } 
+
+    const handleDelete = id => {
+        axios.delete(`https://evening-crag-06086.herokuapp.com/delete-single-blog?blogId=${id}`)
+        .then((response) => {
+            if(response.data.deletedCount) {
+                swal({
+                    icon: 'success',
+                    text: 'Blog Succefully Delete',
+                    button: 'ok',
+                })
+                deteleRef.current.parentElement.parentElement.remove();     
+            }
+        })
+        .catch((error) => {
+            if(error.message) {
+                swal({
+                    icon: 'warning',
+                    text: "Somethng Was Worng Please Try Again",
+                    button: 'ok',
+                })
+            }
+        })
+    }
     
     
 
@@ -88,7 +110,7 @@ const PendingAllBlog = () => {
                                             }}
                                             variant="outlined" 
                                             onClick={() => handleApprove(data._id)}
-                                            ref={ApproveRef}
+                                            ref={approveRef}
                                             >
                                                 Approve
                                         </Button>
@@ -97,7 +119,9 @@ const PendingAllBlog = () => {
                                             backgroundColor: 'red',
                                             color: '#f5f5f5',
                                             }}
-                                            variant="outlined"                                            
+                                            variant="outlined"
+                                            onClick={() => handleDelete(data._id)}
+                                            ref={deteleRef}                                            
                                             >
                                                 Delete
                                         </Button>

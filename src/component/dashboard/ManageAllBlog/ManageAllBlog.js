@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,12 +9,14 @@ import Paper from '@mui/material/Paper';
 import {Button} from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 
 const ManageAllBlog = () => {
     
     const [allBlog, setAllBlog] = useState([]);
     const navigate = useNavigate()
+    const deteleRef = useRef(null);
 
     useEffect(() => {
         axios.get(`https://evening-crag-06086.herokuapp.com/all-blog?status=confirm`)
@@ -28,6 +30,29 @@ const ManageAllBlog = () => {
             replace: true,
         })
     } 
+
+    const handleDelete = id => {
+        axios.delete(`https://evening-crag-06086.herokuapp.com/delete-single-blog?blogId=${id}`)
+        .then((response) => {
+            if(response.data.deletedCount) {
+                swal({
+                    icon: 'success',
+                    text: 'Blog Succefully Delete',
+                    button: 'ok',
+                })
+                deteleRef.current.parentElement.parentElement.remove();     
+            }
+        })
+        .catch((error) => {
+            if(error.message) {
+                swal({
+                    icon: 'warning',
+                    text: "Somethng Was Worng Please Try Again",
+                    button: 'ok',
+                })
+            }
+        })
+    }
 
     return (
         <section id="manege-all-blogs">
@@ -74,7 +99,9 @@ const ManageAllBlog = () => {
                                             backgroundColor: 'red',
                                             color: '#f5f5f5',
                                             }}
-                                            variant="outlined"                                            
+                                            variant="outlined"
+                                            onClick={() => handleDelete(data._id)}
+                                            ref={deteleRef}                                            
                                             >
                                                 Delete
                                         </Button>

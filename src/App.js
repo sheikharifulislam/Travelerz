@@ -12,6 +12,9 @@ import AddBlog from "./component/dashboard/addBlog/AddBlog";
 import ManageAllBlog from './component/dashboard/ManageAllBlog/ManageAllBlog'
 import UpdateBlog from "./component/dashboard/updateBlog/UpdateBlog";
 import PendingAllBlog from "./component/dashboard/pendingAllBlog/PendingAllBlog";
+import MakeAdmin from "./component/dashboard/makeAdmin/MakeAdmin";
+import UserPrivateRoute from './privateRoute/UserPrivateRoute';
+import AdminPrivateRoute from './privateRoute/AdminPrivateRoute';
 
 
 function App() {
@@ -23,11 +26,32 @@ function App() {
             <Route path="/home" element={<Home/>} />
             <Route path="/registration" element={<Registration/>} />
             <Route path="/login" element={<LoginForm/>} />
-            <Route path="/dashboard/*" element={<Dashboard/>} >
+            <Route path="/dashboard/*" element={
+              <UserPrivateRoute>
+                  <Dashboard/>
+              </UserPrivateRoute>
+            } >
                 <Route path="add-blog" element={<AddBlog/>} />
-                <Route path="all-blog" element={<ManageAllBlog/>} />
-                <Route path="update-blog/:blogId" element={<UpdateBlog/>} />
-                <Route path="pending-blog" element={<PendingAllBlog/>} />
+                <Route path="all-blog" element={
+                  <AdminPrivateRoute>
+                      <ManageAllBlog/>
+                  </AdminPrivateRoute>
+                } />
+                <Route path="update-blog/:blogId" element={
+                  <AdminPrivateRoute>
+                      <UpdateBlog/>
+                  </AdminPrivateRoute>
+                } />
+                <Route path="pending-blog" element={
+                  <AdminPrivateRoute>
+                      <PendingAllBlog/>
+                  </AdminPrivateRoute>
+                } />
+                <Route path="add-new-admin" element={
+                  <AdminPrivateRoute>
+                      <MakeAdmin/>
+                  </AdminPrivateRoute>
+                } />
             </Route>
           </Routes>
         </Router>

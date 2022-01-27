@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import './navbar.css';
+import {FirebaseContext} from '../../context/FirebaseProvider';
 
 const Navbar = () => {  
+
+    const {user} = useContext(FirebaseContext);
+
     return (
         <header className="header">
             <div className="header-container">
@@ -16,15 +19,22 @@ const Navbar = () => {
                             <li>
                                 <NavLink to="/home">Home</NavLink>
                             </li>                           
-                            <li>
-                                <NavLink to="/login">login</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/registration">registration</NavLink>
-                            </li>  
-                            <li>
-                                <NavLink to="/dashboard" id="dashboard">dashboard</NavLink>
-                            </li>                                                       
+                            {
+                               !user.email ?
+                                <>
+                                    <li>
+                                        <NavLink to="/login">login</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/registration">registration</NavLink>
+                                    </li> 
+                                </>
+                                :
+                                <li>
+                                    <NavLink to="/dashboard" id="dashboard">dashboard</NavLink>
+                                </li> 
+                            } 
+                                                                                  
                         </ul>
                     </nav>
                 </div>

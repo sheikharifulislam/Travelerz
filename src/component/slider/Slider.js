@@ -25,7 +25,7 @@ const Slider = () => {
         timeOutRef.current = setTimeout(() => {
             if(count < 4) {
                 setCount((previous) => previous + 1);
-                console.log(count);                       
+                                   
             }
             else {
                 setCount(0);
