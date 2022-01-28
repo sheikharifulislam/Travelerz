@@ -68,7 +68,7 @@ const AllBlog = () => {
                             </div>
                         </div>
                         :
-                        <CircularLoader />        
+                        <CircularLoader position="relative" />        
                     }
                 </section>
     );

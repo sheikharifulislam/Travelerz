@@ -1,10 +1,10 @@
 import React from 'react';
 import { CircularProgress } from '@mui/material';
 
-const CircularLoader = () => {
+const CircularLoader = ({position,}) => {
 
     const CircularProgressStyle={
-        position: 'absolute',       
+        position: position,       
         top: '50%',
         left: '50%',
         transform: 'translate(-50%,-50%)',

@@ -8,7 +8,7 @@ const AdminPrivateRoute = ({children}) => {
     const location = useLocation();   
 
     if(adminIsLoading) {
-        return <CircularLoader/>
+        return <CircularLoader position="absolute" />
     }
 
     if(!admin.isAdmin) {

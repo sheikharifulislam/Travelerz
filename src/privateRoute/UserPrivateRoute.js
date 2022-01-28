@@ -9,7 +9,7 @@ const UserPrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(userisLoading) {
-        return <CircularLoader/>
+        return <CircularLoader position="absolute" />
     }
 
     if(!user.email) {
