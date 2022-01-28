@@ -34,8 +34,7 @@
 .add-blog-from-design input[type="text"],
 .add-blog-from-design input[type="number"],
 .add-blog-from-design input[type="email"],
-.add-blog-from-design input[type="url"],
-.add-blog-from-design select {
+.add-blog-from-design input[type="url"] {
   width: 80%;
   padding: 15px 0 15px 15px;
   border-radius: 7px;
@@ -88,4 +87,31 @@ input[type="number"] {
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .add-blog-area {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+
+  .add-blog-from-design {
+    width: 100%;
+  }
+
+  .add-blog-from-design input[type="text"],
+  .add-blog-from-design input[type="number"],
+  .add-blog-from-design input[type="email"],
+  .add-blog-from-design input[type="url"] {
+    width: 100%;
+  }
+
+  .add-blog-from-design textarea {
+    width: 100%;
+  }
+
+  #add-new-blog-button {
+    left: 60%;
+  }
 }

@@ -3,9 +3,14 @@ import { NavLink } from 'react-router-dom';
 import './navbar.css';
 import {FirebaseContext} from '../../context/FirebaseProvider';
 
-const Navbar = () => {  
+const Navbar = () => { 
 
+    const responsiveMenuRef = useRef(null);
     const {user} = useContext(FirebaseContext);
+
+    const handleResponsiveMenu = () => {
+        responsiveMenuRef.current.classList.toggle('active-menu')
+    }
    
     return (
         <header className="header">
@@ -13,7 +18,7 @@ const Navbar = () => {
                 <div className="brand-logo">
                     <NavLink to="/" className="logo">Travelerz</NavLink>
                 </div>
-                <div className="menu">
+                <div className="menu" ref={responsiveMenuRef}>
                     <nav>
                         <ul>
                             <li>
@@ -39,7 +44,7 @@ const Navbar = () => {
                     </nav>
                 </div>
                 <div className="icons">
-                    <div id="menu-btn" className="fas fa-bars" />                
+                    <div id="menu-btn" className="fas fa-bars" onClick={handleResponsiveMenu} />                
                 </div>                
             </div>
         </header>

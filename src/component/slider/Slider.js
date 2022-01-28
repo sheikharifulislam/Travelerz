@@ -48,7 +48,7 @@ const Slider = () => {
                     {
                         sliderData.map((data) => (
                             <div className="single-image" key={data.id} >
-                                <img src={data?.imageLink} id="image-slider" /> 
+                                <img src={data?.imageLink} id="image-slider" alt="slider thumbnail" /> 
                             </div>
                         ))
                     }

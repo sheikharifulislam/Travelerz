@@ -89,3 +89,30 @@ input[type="number"] {
   -o-border-radius: 7px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+  .update-blog-area {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+
+  .update-blog-from-design {
+    width: 100%;
+  }
+
+  .update-blog-from-design input[type="text"],
+  .update-blog-from-design input[type="number"],
+  .update-blog-from-design input[type="email"],
+  .update-blog-from-design input[type="url"] {
+    width: 100%;
+  }
+
+  .update-blog-from-design textarea {
+    width: 100%;
+  }
+
+  #update-new-blog-button {
+    left: 60%;
+  }
+}

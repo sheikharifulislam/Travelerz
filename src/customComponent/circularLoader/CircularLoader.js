@@ -8,6 +8,7 @@ const CircularLoader = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%,-50%)',
+        margin: '50px 0',
          
     }      
     return <CircularProgress style={CircularProgressStyle}/>

@@ -5,8 +5,7 @@ import { FirebaseContext } from '../context/FirebaseProvider';
 
 const AdminPrivateRoute = ({children}) => {
     const {admin, adminIsLoading} = useContext(FirebaseContext);
-    const location = useLocation();
-    console.log(admin);
+    const location = useLocation();   
 
     if(adminIsLoading) {
         return <CircularLoader/>

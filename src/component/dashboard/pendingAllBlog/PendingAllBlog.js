@@ -31,7 +31,7 @@ const PendingAllBlog = () => {
             if(response.data.modifiedCount) {
                swal({
                    icon: 'success',
-                   text: 'Succefully Blog Status Changed',
+                   text: 'Succefully Blog Approved',
                    button: 'ok',
                })
                approveRef.current.parentElement.parentElement.remove();             

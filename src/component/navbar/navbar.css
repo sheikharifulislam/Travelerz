@@ -85,14 +85,25 @@
     color: #fff;
   }
 
-  .menu nav ul {
+  .menu {
     width: 100%;
-    flex-direction: column;
     position: absolute;
-    top: -300px;
+    top: -200px;
     left: 0;
     background-color: red;
-    margin-top: 50px;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+  }
+
+  .active-menu {
+    top: 52px;
+  }
+
+  .menu nav ul {
+    flex-direction: column;
   }
 
   #dashboard {
